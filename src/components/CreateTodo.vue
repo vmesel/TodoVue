@@ -16,16 +16,21 @@ data(){
 },
 methods: {
   sendForm() {
-      const title = this.titleText;
-      const project = this.projectText;
-      this.$emit('create-todo', {
-        title,
-        project,
-        done: false
-      });
-      this.newTodoText = '';
-      console.log("Clicado");
-    }
+  if (this.titleText.length > 0 && this.projectText.length > 0) {
+    const title = this.titleText;
+    const project = this.projectText;
+    console.log("antes");
+    this.$emit('create-todo', {
+      title,
+      project,
+      done: false,
+    });
+    console.log("depois");
+    this.titleText = '';
+    this.projectText = '';
+    this.isCreating = false;
+  }
+},
 },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <create-todo v-on:add-todo="addTodo"></create-todo>
+    <create-todo v-on:create-todo="createTodo"></create-todo>
     <todo-list v-bind:todos="todos"/>
   </div>
 </template>
@@ -37,11 +37,8 @@ export default {
     };
   },
   methods: {
-      addTodo(title) {
-        this.todos.push({
-          title,
-          done: false,
-        });
+      createTodo(newTodo) {
+        this.todos.push(newTodo);
       },
     },
 };
